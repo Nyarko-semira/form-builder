@@ -14,12 +14,10 @@ const LeftContainer = ({form, setForm, formList , setFormList, AddFormList}) => 
       [name]: value, 
     }));
   };
-  
- 
 
 
   return (
-   <div className="w-50  p-3 rounded">
+   <div className="w-50  p-3 rounded left-container">
       {/* <Form.Group controlId="formFile" className="mb-3 fromgroup">
     <Form.Label>Label </Form.Label>
         <Form.Control type="text" />
@@ -33,12 +31,13 @@ const LeftContainer = ({form, setForm, formList , setFormList, AddFormList}) => 
         <Form.Label >
           Label
         </Form.Label>
-        <Col sm="10">
+        <Col sm="12">
           <Form.Control
             type="text"
             value={form.label}
             onChange={onChangehandler}
             name="label"
+            size="sm"
           />
         </Col>
       </Form.Group>
@@ -49,11 +48,12 @@ const LeftContainer = ({form, setForm, formList , setFormList, AddFormList}) => 
         <Form.Label>
           Name
         </Form.Label>
-        <Col sm="10">
+        <Col sm="12">
           <Form.Control
             type="text"
             value={form.Name}
              name="Name"
+             size="sm"
             onChange={onChangehandler}
           />
         </Col>
@@ -67,11 +67,12 @@ const LeftContainer = ({form, setForm, formList , setFormList, AddFormList}) => 
         <Form.Label >
           PlaceHolder
         </Form.Label>
-        <Col sm="10">
+        <Col sm="12">
           <Form.Control
             type="text"
             name="Placeholder"
             value={form.Placeholder}
+            size="sm"
             onChange={onChangehandler}
           />
         </Col>
@@ -83,10 +84,12 @@ const LeftContainer = ({form, setForm, formList , setFormList, AddFormList}) => 
         <Form.Label >
           Type
         </Form.Label>
-        <Col sm="10">
+        <Col sm="12">
           <Form.Select
             value={form.Type}
             name="Type"
+            type="select"
+            size="sm"
             onChange={onChangehandler}
           >
             <option>Select Input Type</option>
@@ -96,6 +99,8 @@ const LeftContainer = ({form, setForm, formList , setFormList, AddFormList}) => 
             <option>Checkbox</option>
             <option>Radio Button</option>
             <option>Number</option>
+            <option>Date</option>
+
           </Form.Select>
         </Col>
       </Form.Group>
@@ -109,10 +114,12 @@ const LeftContainer = ({form, setForm, formList , setFormList, AddFormList}) => 
         <Form.Label>
           Required
         </Form.Label>
-        <Col sm="10">
+        <Col sm="12">
           <Form.Select
           value={form.Required}
           name="Required"
+          type="select"
+          size="sm"
           onChange={onChangehandler}
           >
             <option>Select Required Type</option>
@@ -128,10 +135,12 @@ const LeftContainer = ({form, setForm, formList , setFormList, AddFormList}) => 
         <Form.Label >
           Size
         </Form.Label>
-        <Col sm="10">
+        <Col sm="12">
           <Form.Select
           value={form.size}
           name="size"
+          type="select"
+         size="sm"
           onChange={onChangehandler}
           >
             <option>Select Size</option>
@@ -144,8 +153,8 @@ const LeftContainer = ({form, setForm, formList , setFormList, AddFormList}) => 
       </Form.Group>
      </Col>
      </Row>
-      <div className="text-center">
-       <Button type="submit" size="lg" onClick={AddFormList}>Submit</Button>
+      <div className="text-center ">
+       <Button type="button" size="lg" onClick={AddFormList}>Submit</Button>
       </div>
       
       </Form>

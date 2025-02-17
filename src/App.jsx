@@ -1,5 +1,6 @@
 import React from 'react'
 import Container from './Components/Container/Container'
+import './App.css'
 
 const App = () => {
 
@@ -76,10 +77,11 @@ const App = () => {
 ]}
 
   return (
-    <div  className='app'>
-    
+    <div  className='app '>
+    <h2  className='mb-6 text-center text-primary'>USER INPUT FORM</h2>
       <Container userFields={userFields}/>
-   
+
+       
     </div>
   )
 }
