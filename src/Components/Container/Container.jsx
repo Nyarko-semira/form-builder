@@ -4,34 +4,56 @@ import LeftContainer from '../LeftContainer/LeftContainer'
 import RightContainer from '../RightContainer/RightContainer'
 import { useState } from 'react'
 
-const init ={
+  const init = {
   label: "",
-  Name : "",
-  Placeholder: "",
-  Type : "",
-  Required: "",
-  size : ""}
+  name : "",
+  placeholder: "",
+  type : "Text",
+  required: "",
+  size : "sm",
+  col: {
+    sm: 12,
+    md: 6,
+    lg: 6,
+    xl: 6,
+    xxl: 6
+  }
+}
+
 const Container = () => {
     
    const [form, setForm] = useState(init);
     const [formList, setFormList] = useState([]);
+    const [postData, setPostData] = useState({formTitle:"", description:"", fields:formList})
 
     const AddFormList = (e) => {
-      setFormList ((prev) => ([...prev, form]))
-      setForm(init)
+      console.log("clicked")
+      setFormList ((prev) => ([...prev, form]));
+
+      setForm(init);
+
+      
+      
     }
+
+   console.log({formList});
+   
+    
 
 
 
   return (
-     <div className='w-80 px-5 pt-1  mx-5 mt-5 content  ' style={{boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 10px"}}>
+     <div className='w-80  pt-1  mx-5 mt-3 content' style={{boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 10px"}}>
 
-      <div className="d-flex  w-80" >
-      <LeftContainer form={form} setForm={setForm}  formList={formList} setFormList={setFormList}  AddFormList={AddFormList}  />
+      <div className="d-flex gap-3  w-80" >
+      <LeftContainer postData={postData} setPostData={setPostData} form={form}  setForm={setForm}  formList={formList} setFormList={setFormList}  AddFormList={AddFormList}/>
 
-      <RightContainer form={form} setForm={setForm}  formList={formList} setFormList={setFormList}/>   
+      <RightContainer form={form} setForm={setForm}  formList={formList} setFormList={setFormList} postData={postData} />  
+
+       
       </div>
-      
+
+     
     </div>
 
     

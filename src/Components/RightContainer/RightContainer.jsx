@@ -4,45 +4,48 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const RightContainer = ({form, setForm, formList , setFormList}) => {
+
+const RightContainer = ({ form, setForm, formList, setFormList, postData }) => {
+  const renderByType = (forml, index) => {
+
+    console.log({ forml: forml?.col })
+    switch (forml?.type) {
+      case "text":
+      case "password":
+        return <Form.Control value={forml.placeholder} size={forml.size} type={forml.type} />
+
+        case "select": return  <Form.Select value={forml.placeholder} size={forml.size} type={forml.type}  >
+        <option> Option one</option>
+      </Form.Select>
+    
+      case "checkbox": return   <Form.Check value={forml.placeholder} size={forml.size} type={forml.type} />
+
+      default: return  <Form.Control value={forml.placeholder} size={forml.size} type={forml.type} />
+      
+    }
+  }
   return (
-    <div className='w-50  border-start list-content rounded' style={{backgroundColor:"#d6d3d3e0", "boxShadow":" rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
+    <div className='w-50  pb-3 border-start list-content rounded' style={{ backgroundColor: "#f1f1f1", "boxShadow": " rgba(0, 0, 0, 0.35) 0px 5px 15px" }}>
 
-      <h5 className='mb-10  mt-2 text-center'>Preview Pannel</h5>
-      {/* <div className='d-grid  col-4'>
+      <h5 className='mb-4  mt-2 text-center text-decoration-underline'>{postData.formTitle}</h5>
+      <Row className="px-3 mt-0" >
 
-      
-      {formList.map((forml, index) => (
-        <div className='form-container  p-3'>
-          <Form.Group   controlId="formFile">
-          <Form.Label>{forml.label}</Form.Label>
-          <Form.Control
-          key={index}
-            value={form.Placeholder}
-          />
-          </Form.Group>
-        </div>
-       
-      ))}
-</div> */}
+        {formList.map((forml, index) => (
 
+        <Col sm={forml?.col?.sm} md={forml?.col?.md} lg={forml?.col?.lg} xl={forml?.col?.xl} xxl={forml?.col?.xxl} key={index}>
 
-
-<Row className="g-1 mt-0">
-  {formList.map((forml, index) => (
-    <Col md={6} sm={12} lg={4} key={index}>
-      <div className="form-container p-2">
         <Form.Group controlId={`formFile-${index}`}>
-          <Form.Label>{forml.label}</Form.Label>
-          <Form.Control value={forml.Placeholder} size='sm'  type={forml.Type}/>
-        </Form.Group>
-      </div>
-    </Col>
-  ))}
-</Row>
+        <Form.Label>{forml.label} {forml?.required ? <span style={{color:"red"}}>*</span>:""}</Form.Label>
+        {renderByType(forml, index)}
+        </Form.Group></Col>
+        ))}
 
-   
-      
+      </Row>
+
+     
+
+
+
     </div>
   )
 }

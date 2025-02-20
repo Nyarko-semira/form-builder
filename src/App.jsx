@@ -2,6 +2,7 @@ import React from 'react'
 import Container from './Components/Container/Container'
 import './App.css'
 
+
 const App = () => {
 
 
@@ -78,10 +79,8 @@ const App = () => {
 
   return (
     <div  className='app '>
-    <h2  className='mb-6 text-center text-primary'>USER INPUT FORM</h2>
+    <h2  className='mb-2 text-center text-primary fw-700'>FORM BUILDER </h2>
       <Container userFields={userFields}/>
-
-       
     </div>
   )
 }

@@ -1,4 +1,22 @@
 .left-container{
     font-family: "poppins";
     font-weight: 500;
+     font-size: 13px;
 }
+
+
+
+ h6 {
+        display: flex;
+        flex-direction: row;
+      
+       
+   }
+    
+    h6:before,
+    h6:after {
+        content: "";
+        flex: 1 1;
+        border-bottom: 0.5px solid #a3a0a0;
+        margin:  auto 10px;
+    }
