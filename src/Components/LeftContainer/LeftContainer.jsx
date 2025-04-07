@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Button from 'react-bootstrap/Button';
 
 
-const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) => {
+const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList, formList }) => {
 
   const onChangehandler = (e) => {
     const { name, value } = e.target;
@@ -82,7 +82,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
         <Row style={{ background: "#f1f1f1" }} >
           <Col>
             <Form.Group controlId="formFile">
-              <Form.Label className="mt-2" >
+              <Form.Label className="mb-0" >
                 Label
               </Form.Label>
               <Col sm="12">
@@ -101,7 +101,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
 
           <Col>
             <Form.Group as={Row} controlId="formFile">
-              <Form.Label className="mt-2">
+              <Form.Label className="mb-0">
                 Name
               </Form.Label>
               <Col sm="12">
@@ -119,7 +119,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
           </Col>
           <Col>
             <Form.Group as={Row} controlId="formFile">
-              <Form.Label className="mt-2" >
+              <Form.Label className="mb-0">
                 PlaceHolder
               </Form.Label>
               <Col sm="12">
@@ -143,7 +143,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
 
           <Col>
             <Form.Group as={Row} className="my-3" controlId="formFile"> 
-              <Form.Label >
+              <Form.Label className="mb-1" >
                 Type
               </Form.Label>
               <Col sm="12">
@@ -170,11 +170,31 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
               </Col>
             </Form.Group>
           </Col>
+
+             {form.type === "select" ? <Col>
+            <Form.Group as={Row} className="my-3" controlId="formFile">
+              <Form.Label className="mb-1">
+                Selected Value
+              </Form.Label>
+              <Col sm="12">
+                <Form.Control
+                  type="text"
+                  value={form.type.select}
+                  name="type"
+                  size="sm"
+                  placeholder="Enter Value"
+                  onChange={onChangehandler2}
+                 
+                />
+              </Col>
+            </Form.Group>
+          </Col> :""}
+
           <Col>
             <Form.Group as={Row} className="my-3" controlId="formFile">
-              <Form.Label>
+              <Form.Label className="mb-1">
                 Required
-              </Form.Label>
+              </Form.Label >
               <Col sm="12">
                 <Form.Select
                   value={form.required}
@@ -184,7 +204,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
                   onChange={onChangehandler}
 
                 >
-                  <option>Select Required Type</option>
+                  <option>Required Type</option>
                   <option>False</option>
                   <option>True</option>
                 </Form.Select>
@@ -194,7 +214,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
           </Col>
           <Col>
             <Form.Group as={Row} className="my-3" controlId="formFile">
-              <Form.Label >
+              <Form.Label className="mb-1" >
                 Size
               </Form.Label>
               <Col sm="12">
@@ -221,7 +241,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
         <Row>
           <Col>
             <Form.Group as={Row} controlId="formFile">
-              <Form.Label >
+              <Form.Label className="mb-1" >
                 sm
               </Form.Label>
               <Col sm="12">
@@ -230,8 +250,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
                   name="sm"
                   type="select"
                   size="sm"
-                  onChange={onChangehandler2}
-                  
+                  onChange={onChangehandler2} 
                 >
                   <option>Select Size</option>
                   <option>1</option>
@@ -253,7 +272,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
 
           <Col>
             <Form.Group as={Row} controlId="formFile">
-              <Form.Label >
+              <Form.Label className="mb-1">
                 md
               </Form.Label>                                       
               <Col sm="12">
@@ -285,7 +304,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
 
           <Col>
             <Form.Group as={Row} controlId="formFile">
-              <Form.Label >
+              <Form.Label  className="mb-1">
                 lg
               </Form.Label>
               <Col sm="12">
@@ -316,7 +335,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
 
           <Col>
             <Form.Group as={Row} controlId="formFile">
-              <Form.Label >
+              <Form.Label className="mb-1" >
                 xl
               </Form.Label>
               <Col sm="12">
@@ -347,7 +366,7 @@ const LeftContainer = ({ form, setForm, postData, setPostData, AddFormList }) =>
 
           <Col>
             <Form.Group as={Row} controlId="formFile">
-              <Form.Label >
+              <Form.Label className="mb-1">
                 xxl
               </Form.Label>
               <Col sm="12">

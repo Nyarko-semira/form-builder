@@ -29,12 +29,11 @@ const Container = () => {
     const AddFormList = (e) => {
       console.log("clicked")
       setFormList ((prev) => ([...prev, form]));
-
       setForm(init);
 
       
-      
     }
+
 
    console.log({formList});
    
@@ -48,7 +47,7 @@ const Container = () => {
       <div className="d-flex gap-3  w-80" >
       <LeftContainer postData={postData} setPostData={setPostData} form={form}  setForm={setForm}  formList={formList} setFormList={setFormList}  AddFormList={AddFormList}/>
 
-      <RightContainer form={form} setForm={setForm}  formList={formList} setFormList={setFormList} postData={postData} />  
+      <RightContainer form={form} setForm={setForm}  formList={formList} setFormList={setFormList} postData={postData}/>  
 
        
       </div>
